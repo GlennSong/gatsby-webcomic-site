@@ -24,6 +24,8 @@
   - [Vercel](#vercel)
   - [Images](#images)
   - [Image file sizes](#image-file-sizes)
+- [Authoring Tools](#authoring-tools)
+  - [Visual Code](#visual-code)
 
 # Some History
 I was using Wordpress for my webcomic This Mortal Coil but it grew too cumbersome to use. I ended up breaking it and decided it was time for a change. A friend told me about static site generation and as I explored it I came across Gatsby. I'm not a React.js or Gatsby.js export. I'm not a javascript programmer by trade -- most of my work is in game development, but after a few Youtube videos on React and Gatsby and I was dangerous enough to try my hand at it. This site is the result of that work.
@@ -81,6 +83,8 @@ I intend to periodically make bug fixes. If there are major issues please feel f
 There are some aspects of the code especially when it comes to how I use the Markdown frontmatter that are... shall we say, cumbersome. If you have any feedback about that please don't hesitate to share.
 
 I do also intend to build new features for my webcomic and some of that might find their way in here as well. 
+
+Oh, you'll probably want to modify the colors, style for the headers, typography and junk. I'll leave that to you. The gatsby project uses a typography setup to make it look nice and coherent, and you're free to remove it or change it. The colors are scattered all throughout. Maybe a future change would be to use SASS so those things can be centralized. Right now the CSS is scattered throughout the react components. 
 
 Good luck with your project.
 
@@ -229,3 +233,11 @@ With that said, you'll want to keep your original files outside of the github pr
 * Blog Post Images: 2048x2048 (1:1 square ratio)
 
 I use PNGs, but when I compress I use lossy for the highest filesize compression. You probably won't see the difference for most images. Gatsby will take your PNGs and compress to WEBP.
+
+# Authoring Tools
+## Visual Code
+I use Visual Code for everything because it has built in github integration, markdown support and preview, a built in command line for dealing with running Gatsby and node locally, and plugins for doing some tasks like getting the current UTC datetime for the `date` field.
+
+[Insert Date String](https://marketplace.visualstudio.com/items?itemName=jsynowiec.vscode-insertdatestring) is the Visual Code plugin I use for doing that.
+
+Once you get it you can do `Ctrl+P` in VS Code to get the search file bar. Then type in '>' to get commands. From there type in "Insert Formatted DateTime". When prompted for the date use "iso" to get the UTC timestamp which is what the site uses.
