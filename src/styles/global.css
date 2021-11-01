@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+html, body {
+  min-height: 100%;
+}
+body {
+  /* background: radial-gradient(at top left, rgba(146,43,225,1) 0%, rgba(43,9,107,1) 100%); */
+  /* background: radial-gradient(at top left, #333533 0%, #202020 100%); */
+  /* background: radial-gradient(at top left, #00509d 0%, #00296b 100%); */
+  background: radial-gradient(at top left, #00509d 0%, #00296b 100%);
+  background-repeat: no-repeat;
+  margin-top: 4em;
+}
+
+/* layout & nav */
+.layout {
+  margin: 0 auto;
+}
+
+footer {
+  margin-top: 2em;
+  padding: 1em;
+}
+
+footer hr {
+  border-top: 1px solid white;
+}
+
+footer h4 {
+  text-transform: uppercase;  
+  font-size: 1em;
+  color: white;
+}
+
+footer li > a > svg {
+  width: 40px;
+  height: 40px;
+  color: #f6ae2d;
+}
+
+footer p{
+  text-align: center;
+  color: white;
+  margin: 40px auto;
+  font-size:16px;
+}
+
+footer ul {
+  list-style:none;
+}
+
+footer .socials li {
+  display: inline;
+  padding-right: 5px;
+}
+
+hr {
+  border-top: 1px solid white;
+}
+
+.tmc-center {
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* url: https://css-tricks.com/seamless-responsive-photo-grid/ */
+.tmc-stack {
+  /* Prevent vertical gaps */
+  line-height: 0;
+   
+  -webkit-column-count: 1;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    1;
+  -moz-column-gap:      0px;
+  column-count:         1;
+  column-gap:           0px;  
+}
+
+
+/* 
+  Deal with fluid size video 
+ */
+ video {
+  /* override other styles to make responsive */
+  width: 100%    !important;
+  height: auto   !important;
+}
+
+a {
+  color: #f6ae2d;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #af7b1b;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+/* Center text under image. */
+figure {
+  text-align: center;
+  font-size: .75em;
+}
+
+/* bootstrap button color */
+.btn-default
+{
+  background-color: #f6ae2d;
+  color:#FFF;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+
+  background-color: #af7b1b;
+  color:#FFF;
+}
+
+/* table */
+table th td {
+  border: 3px solid white;
+}
+tr:nth-child(even) {
+  background: #f6ae2d
+}
+
+tr:nth-child(odd) {
+  background: #888
+}
+
+/* Hover zoom effect */
+.hover-zoom {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height:0;
+}
+
+.hover-zoom section:first-child {
+  margin: 0;
+}
+
+.hover-zoom section:first-child,
+.hover-zoom div:first-child {
+  -webkit-transition: transform .5s ease-in-out;
+  -moz-transition: transform .5s ease-in-out;
+  -o-transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+}
+
+.hover-zoom:hover section:first-child,
+.hover-zoom:focus section:first-child,
+.hover-zoom:hover div:first-child,
+.hover-zoom:focus div:first-child {
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.hover-zoom section:first-child:before,
+.hover-zoom div:first-child:before {
+  display: block;
+}
+
+
