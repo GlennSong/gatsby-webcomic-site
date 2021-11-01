@@ -2,8 +2,12 @@
 - [Table of Contents](#table-of-contents)
 - [Some History](#some-history)
 - [But, why though?](#but-why-though)
-- [Overview](#overview)
+- [Starter Template Features](#starter-template-features)
 - [Usage](#usage)
+- [Publishing Comics](#publishing-comics)
+  - [Github](#github)
+  - [Vercel Integration and Deployment](#vercel-integration-and-deployment)
+  - [Other Deployment Options](#other-deployment-options)
 - [Modification](#modification)
 - [Tutorials](#tutorials)
   - [How to Organize Comic Books.](#how-to-organize-comic-books)
@@ -19,10 +23,7 @@
     - [Thumbnails](#thumbnails)
     - [Social Media Images and Usage](#social-media-images-and-usage)
     - [Blogging](#blogging)
-- [Publishing Comics](#publishing-comics)
-  - [Github](#github)
-  - [Vercel](#vercel)
-  - [Images](#images)
+- [Images](#images)
   - [Image file sizes](#image-file-sizes)
 - [Authoring Tools](#authoring-tools)
   - [Visual Code](#visual-code)
@@ -37,7 +38,7 @@ Wordpress woes aside, my website even with caching never seemed to run fast enou
 
 Wordpress also meant I had to surrender control. Content is put in MySQL and images are uploaded to an Upload folder. I wanted my content organized together. The comic image and the markdown data in one folder. A comic as a group of folders. I believe Gatsby gave me that control.
 
-# Overview
+# Starter Template Features
 
 This is a simple no frills webcomic Gatsby static generated website and includes these features: 
 
@@ -70,6 +71,25 @@ Keep in mind this is no frills. No WYSIWYG interface a la Wordpress. Everything 
 Once you've got the project downloaded go to `gatsby-config.js` and scroll down to `siteMetadata` and input your data. Most fields should be pretty self explanatory. 
 
 To run use `gatsby develop` on the command line.
+
+# Publishing Comics
+A quick guide on how to publish the static site online.
+
+## Github
+First of all, with this site, I assume you'll be using Github. Your content and the site will be stored on Github. 
+
+If you bristle at the idea of having your comic content stored in Github then you can find different headless CMSes to be your storage partner such as Contentful or Netlify, but I wanted to go minimal and not rely on other external services to host my content.
+
+## Vercel Integration and Deployment
+
+I use a third party integration service called [Vercel](https://vercel.com/). You can get a hobbyist tier account here and allow them to link to your Github. Once you make changes, Vercel will pick it up and then build your Gatsby site for you and deploy it.
+
+For example, once you're done authoring your new book or new pages or weekly update all you need to do is upload it to Github and Vercel handles the rest.
+
+**NOTE:** One cavaet: Vercel gives you 1 GB of cache storage for free on their hobbyist tier. If you overflow that cause your comic is too big, then you'll be forced to do a full rebuild of your entire site. This presents a secondary issue: Vercel gives a hobbyist tier 45 minutes of build time before it times out. So if your site is so big that it takes more than 45 minutes to build and it creates a cache size that's more than 1 GB, then you'll have to find another solution.
+
+## Other Deployment Options
+BTW, if you don't like Vercel, Netlify is another integration service you can try. You can use Gatsby to output a production ready version of the site locally and upload it to an FTP.
 
 # Modification
 Please feel free to use this as a base. I'm sure not everyone wants to use a local harddrive as their file system. I will admit dealing with markdown files directly can be very error prone.
@@ -205,22 +225,7 @@ If you want to check your social media image please use the [Facebook Sharing De
 ### Blogging
 Below the frontmatter section you are free to add additional markdown for a blog post. I tend to use it for prose story narration or random blogging and author notes. 
 
-# Publishing Comics
-
-## Github
-First of all, with this site, I assume you'll be using Github. Your content and the site will be stored on Github. 
-
-If you bristle at the idea of having your comic content stored in Github then you can find different headless CMSes to be your storage partner such as Contentful or Netlify, but I wanted to go minimal and not rely on other external services to host my content.
-
-## Vercel 
-
-I use a third party integration service called [Vercel](https://vercel.com/). You can get a hobbyist tier account here and allow them to link to your Github. Once you make changes, Vercel will pick it up and then build your Gatsby site for you and deploy it.
-
-For example, once you're done authoring your new book or new pages or weekly update all you need to do is upload it to Github and Vercel handles the rest.
-
-**NOTE:** One cavaet: Vercel gives you 1 GB of cache storage for free on their hobbyist tier. If you overflow that cause your comic is too big, then you'll be forced to do a full rebuild of your entire site. This presents a secondary issue: Vercel gives a hobbyist tier 45 minutes of build time before it times out. So if your site is so big that it takes more than 45 minutes to build and it creates a cache size that's more than 1 GB, then you'll have to find another solution.
-
-## Images
+# Images
 Since comics have a lot of images, you'll want to make sure the file size isn't super big. I tend to use a site to compress PNGs down using lossy compression. 
 
 With that said, you'll want to keep your original files outside of the github project. The only images that should go into the content folder are the web-ready images, this means sized and compressed for web display.
