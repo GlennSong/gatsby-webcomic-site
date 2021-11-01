@@ -1,5 +1,12 @@
 # gatsby-webcomic-site
 
+- [gatsby-webcomic-site](#gatsby-webcomic-site)
+- [Some History](#some-history)
+- [But, why though?](#but-why-though)
+- [Overview](#overview)
+- [Usage](#usage)
+- [Modification](#modification)
+
 # Some History
 I was using Wordpress for my webcomic This Mortal Coil but it grew too cumbersome to use. I ended up breaking it and decided it was time for a change. A friend told me about static site generation and as I explored it I came across Gatsby. I'm not a React.js or Gatsby.js export. I'm not a javascript programmer by trade -- most of my work is in game development, but after a few Youtube videos on React and Gatsby and I was dangerous enough to try my hand at it. This site is the result of that work.
 
