@@ -4,6 +4,7 @@
   "description": "A simplified bare-bones starter for a Gatsby/React webcomic site.",
   "version": "0.1.0",
   "license": "0BSD",
+  "main": "index.js",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
