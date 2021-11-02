@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import React from 'react'
 import UseSiteMetadata from '../hooks/use-sitemeta';
 
-export default function TMCNavbar() {
+export default function TopNavbar() {
     const { title, menuLinks } = UseSiteMetadata();
 
     return (
