@@ -14,14 +14,17 @@ export default function comics( { data } ) {
 	const longformBooks = data.longformbooks.nodes;
 	const shortformBooks = data.shortformbooks.nodes;
 	const pages = data.comicpages.nodes;
-    const { siteUrl } = UseSiteMetadata();
+    const { siteUrl, title } = UseSiteMetadata();
     const currAbsUrl = siteUrl + '/comics/';
   
+    const blogTitle = title + " Episodes";
+    const blogDesc = "A listing of all the available comics to read for " + title + ".";
+
 	return (
 		<Layout
-      absUrl={currAbsUrl}
-			title="This Mortal Coil Episodes"
-			description="A listing of all the available comics to read for This Mortal Coil."
+            absUrl={currAbsUrl}
+			title={blogTitle}
+			description={blogDesc}
 		>
 			<div className="my-5">
 				<h1>Comic Directory</h1>

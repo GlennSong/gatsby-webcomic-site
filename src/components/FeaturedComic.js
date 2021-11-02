@@ -61,7 +61,6 @@ export default function FeaturedComic() {
     if(featuredImgData !== null) 
     {
         // console.log("featuredImageData" + JSON.stringify(featuredImgData));
-        console.log("comicpages" + JSON.stringify(comicpages));
         const { html, id, frontmatter, parent} = featuredImgData;
         const pages = comicpages.nodes;
         return (

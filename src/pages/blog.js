@@ -10,11 +10,13 @@ import UseSiteMetadata from "../hooks/use-sitemeta"
 
 export default function blog({data}) {
     const posts = data.posts.nodes;
-    const { siteUrl } = UseSiteMetadata();
+    const { siteUrl, title } = UseSiteMetadata();
     const currAbsUrl = siteUrl + '/blog/';
-  
+    
+    const blogTitle = "Journal entries about " + title;
+    const blogDesc = "A listing of blog posts for " + title + ".";
     return (
-        <Layout absUrl={currAbsUrl} title="Journal entries about This Mortal Coil." description="A listing of blog posts for This Mortal Coil.">
+        <Layout absUrl={currAbsUrl} title={blogTitle} description={blogDesc}>
           <Container className="my-5">
             <div>
                 <h1>Blog Posts</h1>

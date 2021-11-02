@@ -159,7 +159,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "This Mortal Coil Webcomic and Blog",
+            title: "<Webcomic Site Name>",
           },
         ],
       },
@@ -169,8 +169,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-RC9J0P604M", // Google Analytics / GA, dearkamiko.com
-          "G-5W5MRNW97G", // mortalcoilcomic.com
+          "<ga_tracking_id>", // Google Analytics
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds

@@ -38,7 +38,7 @@ export default function SocialShare({ shareUrl, image, title }) {
 		<div>
 			<EmailShareButton
 				body={"Hey, check out" + title + "!"}
-				subject="[This Mortal Coil Webcomic] Check out this webcomic!"
+				subject="Check out this webcomic!"
 				url={shareUrl}
 			>
 				<EmailIcon size={shareIconSize} />

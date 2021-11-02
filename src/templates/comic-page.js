@@ -19,8 +19,6 @@ export default function ComicPage({ data }) {
 	const { edges } = data.urlLinks;
 	const { siteUrl } = UseSiteMetadata();
 
-    console.log("imagestack is " + JSON.stringify(comicImageStack));
-
     var seoImage = null;
     if (socialMediaImage !== null) {
         seoImage = socialMediaImage;
@@ -35,12 +33,10 @@ export default function ComicPage({ data }) {
     var imageStack = null;
     if (comicImageStack !== null) 
     {
-        console.log("found comicImageStack");
         imageStack = comicImageStack;
     }
     else if(comicImage !== null)
     {
-        console.log("found comicImage");
         imageStack = [comicImage];
     }
     else 

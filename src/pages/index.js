@@ -14,56 +14,56 @@ export default function ComicViewer({ data }) {
 
 	//GSONG_TODO: Where should we get the excerpt from? A dedicated spot or the front matter description?
 	const { parent, html, frontmatter } = data.latestComic.nodes[0];
-    const { slug, title, date, comicImage, comicImageStack, thumbnailImage, socialMediaImage } = frontmatter;
-	const { siteUrl } = UseSiteMetadata();
-    const { edges } = data.urlLinks;
+	const { slug, title, date, comicImage, comicImageStack, thumbnailImage, socialMediaImage } = frontmatter;
+	var siteMetaData = UseSiteMetadata();
+	const { edges } = data.urlLinks;
 
 	// const nextRelUrl = "/" + sourceInstanceName + "/" + relativeDirectory;
-	const currAbsUrl = siteUrl + "/" + parent.sourceInstanceName + "/" + parent.relativeDirectory;
+	const currAbsUrl = siteMetaData.siteUrl + "/" + parent.sourceInstanceName + "/" + parent.relativeDirectory;
 
-  var seoImage = null;
-  if (socialMediaImage !== null) {
-    seoImage = socialMediaImage;
-  } else if(comicImageStack !== null || (comicImage !== null && comicImage.extension && comicImage.extension === 'mp4')) {
-    seoImage = thumbnailImage;    
-  } else {
-    seoImage = comicImage;
-  } 
+	var seoImage = null;
+	if (socialMediaImage !== null) {
+		seoImage = socialMediaImage;
+	} else if(comicImageStack !== null || (comicImage !== null && comicImage.extension && comicImage.extension === 'mp4')) {
+		seoImage = thumbnailImage;    
+	} else {
+		seoImage = comicImage;
+	} 
 
-  var imageStack = null;
-  if (comicImageStack !== null) 
-  {
-      imageStack = comicImageStack;
-  }
-  else if(comicImage !== null)
-  {
-      imageStack = [comicImage];
-  }
-  else 
-  {
-      console.log("Error: Need to implement either comicImage or comicImageStack.");
-  }
+	var imageStack = null;
+	if (comicImageStack !== null) 
+	{
+		imageStack = comicImageStack;
+	}
+	else if(comicImage !== null)
+	{
+		imageStack = [comicImage];
+	}
+	else 
+	{
+		console.log("Error: Need to implement either comicImage or comicImageStack.");
+	}
 
 	return (
 		<Layout
-      absUrl={currAbsUrl}
-			title="This Mortal Coil Webcomic" 
-			description="A webcomic by Glenn Song."
+	  absUrl={currAbsUrl}
+			title={siteMetaData.title} 
+			description={siteMetaData.description}
 			image={seoImage}
 		>
 			<article className="tmc-article">
 				<section>
 					<div className="tmc-center tmc-stack">
 						<Link to={"/comics/"} key={id}>
-              {imageStack.map((image, index) => (
-                  <ShowContent content={image} key={slug + '-' + index} />
-              ))}
+			  {imageStack.map((image, index) => (
+				  <ShowContent content={image} key={slug + '-' + index} />
+			  ))}
 						</Link>
 					</div>
 				</section>
 
 				<Container>
-                    <ComicNav id={data.latestComic.nodes[0].parent.id} edges={edges} firstComic={data.firstComicURL.nodes[0].parent} lastComic={data.latestComic.nodes[0].parent} />
+					<ComicNav id={data.latestComic.nodes[0].parent.id} edges={edges} firstComic={data.firstComicURL.nodes[0].parent} lastComic={data.latestComic.nodes[0].parent} />
 					<section >
 						<br />
 						<h1>{title}</h1>
@@ -94,96 +94,96 @@ export default function ComicViewer({ data }) {
 export const query = graphql`
 query MyQuery {
   latestComic: allMarkdownRemark(
-    sort: {order: DESC, fields: frontmatter___date}
-    filter: {fileAbsolutePath: {regex: "/comics/"}, frontmatter: {posttype: {eq: "comicpage"}}}
-    limit: 1
+	sort: {order: DESC, fields: frontmatter___date}
+	filter: {fileAbsolutePath: {regex: "/comics/"}, frontmatter: {posttype: {eq: "comicpage"}}}
+	limit: 1
   ) {
-    nodes {
-      html
-      excerpt(format: PLAIN)
-      parent {
-        ... on File {
-          id
-		      relativeDirectory
-          sourceInstanceName
-        }
-      }
+	nodes {
+	  html
+	  excerpt(format: PLAIN)
+	  parent {
+		... on File {
+		  id
+			  relativeDirectory
+		  sourceInstanceName
+		}
+	  }
 
-      frontmatter {
-        slug
-        date
-        title
-        comicImage {
-          childImageSharp {
-            gatsbyImageData(formats: WEBP, placeholder: BLURRED)
-            original {
-              height
-              width
-            }
-          }
-          extension
-          publicURL
-        }
-        comicImageStack {
-          childImageSharp {
-             gatsbyImageData(formats: WEBP, placeholder: BLURRED)
-             original {
-              height
-              width
-            }
-          }
-        } 
-      }
-    }
+	  frontmatter {
+		slug
+		date
+		title
+		comicImage {
+		  childImageSharp {
+			gatsbyImageData(formats: WEBP, placeholder: BLURRED)
+			original {
+			  height
+			  width
+			}
+		  }
+		  extension
+		  publicURL
+		}
+		comicImageStack {
+		  childImageSharp {
+			 gatsbyImageData(formats: WEBP, placeholder: BLURRED)
+			 original {
+			  height
+			  width
+			}
+		  }
+		} 
+	  }
+	}
   }
   firstComicURL: allMarkdownRemark(
-    sort: {order: ASC, fields: frontmatter___date}
-    filter: {fileAbsolutePath: {regex: "/comics/"}, frontmatter: {posttype: {eq: "comicpage"}}}
-    limit: 1
+	sort: {order: ASC, fields: frontmatter___date}
+	filter: {fileAbsolutePath: {regex: "/comics/"}, frontmatter: {posttype: {eq: "comicpage"}}}
+	limit: 1
   ) {
-    nodes {
-      parent {
-        ... on File {
-          id
-          relativeDirectory
-          sourceInstanceName
-        }
-      }
-    }
+	nodes {
+	  parent {
+		... on File {
+		  id
+		  relativeDirectory
+		  sourceInstanceName
+		}
+	  }
+	}
   }
   urlLinks: allMarkdownRemark(
-    sort: {fields: [frontmatter___comic, frontmatter___date], order: [ASC, ASC]}
-    filter: {fileAbsolutePath: {regex: "/content/"}, frontmatter: {posttype: {eq: "comicpage"}}}
+	sort: {fields: [frontmatter___comic, frontmatter___date], order: [ASC, ASC]}
+	filter: {fileAbsolutePath: {regex: "/content/"}, frontmatter: {posttype: {eq: "comicpage"}}}
   ) {
-    edges {
-      previous {
-        parent {
-          ... on File {
-            id
-            sourceInstanceName
-            relativeDirectory
-          }
-        }
-      }
-      node {
-        parent {
-          ... on File {
-            id
-            relativeDirectory
-            sourceInstanceName
-          }
-        }
-      }
-      next {
-        parent {
-          ... on File {
-            id
-            sourceInstanceName
-            relativeDirectory
-          }
-        }
-      }
-    }
+	edges {
+	  previous {
+		parent {
+		  ... on File {
+			id
+			sourceInstanceName
+			relativeDirectory
+		  }
+		}
+	  }
+	  node {
+		parent {
+		  ... on File {
+			id
+			relativeDirectory
+			sourceInstanceName
+		  }
+		}
+	  }
+	  next {
+		parent {
+		  ... on File {
+			id
+			sourceInstanceName
+			relativeDirectory
+		  }
+		}
+	  }
+	}
   }
 }
 `
