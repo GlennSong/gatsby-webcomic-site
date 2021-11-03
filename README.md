@@ -1,44 +1,19 @@
-# Table of Contents
-- [Table of Contents](#table-of-contents)
-- [Some History](#some-history)
-- [But, why though?](#but-why-though)
-- [Starter Template Features](#starter-template-features)
-- [Usage](#usage)
-- [Publishing Comics](#publishing-comics)
-  - [Github](#github)
-  - [Vercel Integration and Deployment](#vercel-integration-and-deployment)
-  - [Other Deployment Options](#other-deployment-options)
-- [Modification](#modification)
-- [Tutorials](#tutorials)
-  - [How to Organize Comic Books.](#how-to-organize-comic-books)
-    - [Book Frontmatter Example](#book-frontmatter-example)
-    - [Book Image](#book-image)
-    - [Define the First Page](#define-the-first-page)
-    - [Chapter List](#chapter-list)
-  - [Comic Page Setup](#comic-page-setup)
-    - [Frontmatter for a Comic Page](#frontmatter-for-a-comic-page)
-    - [Comic Image vs. Comic Stack](#comic-image-vs-comic-stack)
-    - [PostType](#posttype)
-    - [Chapter](#chapter)
-    - [Thumbnails](#thumbnails)
-    - [Social Media Images and Usage](#social-media-images-and-usage)
-    - [Blogging](#blogging)
-- [Images](#images)
-  - [Image file sizes](#image-file-sizes)
-- [Authoring Tools](#authoring-tools)
-  - [Visual Code](#visual-code)
+# Usage
+Copy and paste this into your terminal and make sure to rename "my-webcomic-site".
 
-# Some History
-I was using Wordpress for my webcomic This Mortal Coil but it grew too cumbersome to use. I ended up breaking it and decided it was time for a change. A friend told me about static site generation and as I explored it I came across Gatsby. I'm not a React.js or Gatsby.js export. I'm not a javascript programmer by trade -- most of my work is in game development, but after a few Youtube videos on React and Gatsby and I was dangerous enough to try my hand at it. This site is the result of that work.
+```
+gatsby new my-webcomic-site https://github.com/GlennSong/gatsby-webcomic-site
+```
 
-# But, why though? 
-I wanted something to run faster online and allow me to have more control.
+Once you've downloaded this template project please check out how the long form and short form comics are setup. 
 
-Wordpress woes aside, my website even with caching never seemed to run fast enough. 
+Keep in mind this is no frills. No WYSIWYG interface a la Wordpress. Everything is written using Markdown and stored locally on your harddrive in the `content` folder.
 
-Wordpress also meant I had to surrender control. Content is put in MySQL and images are uploaded to an Upload folder. I wanted my content organized together. The comic image and the markdown data in one folder. A comic as a group of folders. I believe Gatsby gave me that control.
+Once you've got the project downloaded go to `gatsby-config.js` and scroll down to `siteMetadata` and input your data. Most fields should be pretty self explanatory. 
 
-# Starter Template Features
+To run use `gatsby develop` on the command line.
+
+# Webcomic Starter Template Features
 
 This is a simple no frills webcomic Gatsby static generated website and includes these features: 
 
@@ -62,15 +37,6 @@ This is a simple no frills webcomic Gatsby static generated website and includes
 * XML sitemap
 * Typography layout
 * Use of Font Awesome React Icons
-
-# Usage
-Once you've downloaded this template project please check out how the long form and short form comics are setup. 
-
-Keep in mind this is no frills. No WYSIWYG interface a la Wordpress. Everything is written using Markdown and stored locally on your harddrive in the `content` folder.
-
-Once you've got the project downloaded go to `gatsby-config.js` and scroll down to `siteMetadata` and input your data. Most fields should be pretty self explanatory. 
-
-To run use `gatsby develop` on the command line.
 
 # Publishing Comics
 A quick guide on how to publish the static site online.
