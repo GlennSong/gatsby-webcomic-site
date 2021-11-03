@@ -13,6 +13,10 @@ Once you've got the project downloaded go to `gatsby-config.js` and scroll down 
 
 To run use `gatsby develop` on the command line.
 
+# "Demo" 
+
+I use this theme for my webcomic [This Mortal Coil](https://www.mortalcoilcomic.com/).
+
 # Webcomic Starter Template Features
 
 This is a simple no frills webcomic Gatsby static generated website and includes these features: 
